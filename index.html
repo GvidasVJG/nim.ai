@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container" style="flex-direction: column; margin-bottom: 20px;">
+        <div>
+            <div id="display"></div>
+            <div class="container" id="moves1">
+                <div id="btn1_1" class="btn">1</div>
+                <div id="select1" style="display:none"></div>
+                <div id="btn1_2" class="btn">2</div>
+                <div id="select2" style="display:none"></div>
+                <div id="btn1_3" class="btn">3</div>
+                <div id="select3" style="display:none"></div>
+            </div>
+            <div class="container hidden" id="moves2">
+                <div id="btn2_1" class="btn">1</div>
+                <div id="select1" style="display:none"></div>
+                <div id="btn2_2" class="btn">2</div>
+                <div id="select2" style="display:none"></div>
+                <div id="btn2_3" class="btn">3</div>
+                <div id="select3" style="display:none"></div>
+            </div>
+        </div>
+        <div id="reset" class="btn">↻</div>
+        <!-- </div>
+    <div class="container" > -->
+        <div id="ai1" style="margin-top: 20px; "></div>
+        <div class="container" id="states1" style="margin-top: 10px; width: 50vw;">
+            <div class="box">
+                <div id="name1_2"></div>
+                <div id="box1_2"></div>
+            </div>
+            <div class="box">
+                <div id="name1_3"></div>
+                <div id="box1_3"></div>
+            </div>
+            <div class="box">
+                <div id="name1_4"></div>
+                <div id="box1_4"></div>
+            </div>
+            <div class="box">
+                <div id="name1_5"></div>
+                <div id="box1_5"></div>
+            </div>
+            <div class="box">
+                <div id="name1_6"></div>
+                <div id="box1_6"></div>
+            </div>
+            <div class="box">
+                <div id="name1_7"></div>
+                <div id="box1_7"></div>
+            </div>
+            <div class="box">
+                <div id="name1_8"></div>
+                <div id="box1_8"></div>
+            </div>
+            <div class="box">
+                <div id="name1_9"></div>
+                <div id="box1_9"></div>
+            </div>
+            <div class="box">
+                <div id="name1_10"></div>
+                <div id="box1_10"></div>
+            </div>
+            <div class="box">
+                <div id="name1_11"></div>
+                <div id="box1_11"></div>
+            </div>
+        </div>
+        <div id="ai2" style="margin-top: 50px;"></div>
+        <div class="container" id="states2" style="margin-top: 10px; width: 50vw;">
+            <div class="box">
+                <div id="name2_2"></div>
+                <div id="box2_2"></div>
+            </div>
+            <div class="box">
+                <div id="name2_3"></div>
+                <div id="box2_3"></div>
+            </div>
+            <div class="box">
+                <div id="name2_4"></div>
+                <div id="box2_4"></div>
+            </div>
+            <div class="box">
+                <div id="name2_5"></div>
+                <div id="box2_5"></div>
+            </div>
+            <div class="box">
+                <div id="name2_6"></div>
+                <div id="box2_6"></div>
+            </div>
+            <div class="box">
+                <div id="name2_7"></div>
+                <div id="box2_7"></div>
+            </div>
+            <div class="box">
+                <div id="name2_8"></div>
+                <div id="box2_8"></div>
+            </div>
+            <div class="box">
+                <div id="name2_9"></div>
+                <div id="box2_9"></div>
+            </div>
+            <div class="box">
+                <div id="name2_10"></div>
+                <div id="box2_10"></div>
+            </div>
+            <div class="box">
+                <div id="name2_11"></div>
+                <div id="box2_11"></div>
+            </div>
+        </div>
+    </div>
+    <div id="enableAI1" style="display:none"></div>
+    <div id="enableAI2" style="display:none"></div>
+    <div id="resignAI1" style="display:none"></div>
+    <div id="resignAI2" style="display:none"></div>
+
+    <!-- <div id="change2" style="display:none"></div> -->
+    <script src="helpers.js"></script>
+    <script src="classes/player.js"></script>
+    <script src="classes/ai.js"></script>
+    <script src="classes/game.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
