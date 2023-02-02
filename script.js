@@ -1,7 +1,7 @@
 // player1 = new Player('Human');
 player1 = new AI('nim.AI', 'lp', 'n');
 // player2 = new AI('nim.AI2', 'lp', 'n');
-player2 = new Player('Human');
+player2 = new Player('Žmogus');
 
 nim = new Game(11, player1, player2);
 
@@ -27,14 +27,21 @@ if (player1 instanceof AI) {
     player1.generateMoves(nim);
     document.getElementById('moves1').style.pointerEvents = 'none';
     document.getElementById('states1').style.display = 'flex';
-    document.getElementById('ai1').innerHTML = `Player 1 (${player1.name}) states:`;
+    document.getElementById('ai1').innerHTML = `${player1.name} būsenos`;
 }
 if (player2 instanceof AI) {
     document.getElementById('enableAI2').addEventListener('go', player2.go);
     player2.generateMoves(nim);
     document.getElementById('moves2').style.pointerEvents = 'none';
     document.getElementById('states2').style.display = 'flex';
-    document.getElementById('ai2').innerHTML = `Player 2 (${player2.name}) states:`;
+    document.getElementById('ai2').innerHTML = `${player2.name}2 būsenos:`;
 }
 
-nim.start();
+let info_tgl = false;
+
+function moreinfo() {
+    document.getElementsByName('info_item').forEach((el) => {
+        el.classList.toggle('hidden');
+        el.classList.toggle('info');
+    });
+}

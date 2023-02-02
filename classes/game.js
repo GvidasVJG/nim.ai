@@ -2,6 +2,8 @@ class Game {
     moveMade = (e) => this.turn(e);
     reset = () => this.start();
     aiResign = (e) => this.resignAI(e);
+    human_wins = 0;
+    ai_wins = 0;
 
     constructor(startState, player1, player2) {
         this.startState = startState;
@@ -11,7 +13,7 @@ class Game {
     };
 
     displayWinner = () => {
-        this.display.innerText = `${this.winner.name} wins`;
+        this.display.innerText = `${this.winner.name} laimėjo`;
     }
 
     teachAI = () => {
@@ -64,6 +66,12 @@ class Game {
             this.winner = this.currPlayer;
             this.displayWinner();
             this.teachAI();
+            if (this.winner instanceof AI){
+                document.getElementById('ai_wins').innerHTML = ++this.ai_wins;
+            }
+            else {
+                document.getElementById('human_wins').innerHTML = ++this.human_wins;
+            }
             if (this.player1 instanceof AI && this.player2 instanceof AI) {
                 this.start();
             }
@@ -107,6 +115,7 @@ class Game {
 
     start = () => {
         this.resetGame();
+        document.getElementById('reset').innerHTML = '↻';
         if (this.currPlayer instanceof AI) {
             document.getElementById('enableAI1').dispatchEvent(new CustomEvent('go', { detail: [this, 1] }));
         }

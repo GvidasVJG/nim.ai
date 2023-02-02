@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width">
     <title>nim.ai</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/7dd3810f80.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container" style="flex-direction: column; margin-bottom: 20px;">
-        <div>
-            <div id="display"></div>
-            <div class="container" id="moves1">
+    <i class="fa-solid fa-circle-info" style="position:fixed; left:10px; top: 10px; cursor:pointer; font-size: 20pt;"
+        onclick="moreinfo();"></i>
+    <div class="container">
+        <div style="display:grid; place-items:center;">
+            <div class="hidden" name="info_item">Žaidimą visada pradeda nim.AI (kompiuteris)</div>
+            <div id="display">11</div>
+            <div class="hidden" name="info_item">Likusių degtukų skaičius</div>
+            <div id="moves1" class="row">
                 <div id="btn1_1" class="btn">1</div>
                 <div id="select1" style="display:none"></div>
                 <div id="btn1_2" class="btn">2</div>
@@ -20,7 +28,7 @@
                 <div id="btn1_3" class="btn">3</div>
                 <div id="select3" style="display:none"></div>
             </div>
-            <div class="container hidden" id="moves2">
+            <div class="row hidden" id="moves2">
                 <div id="btn2_1" class="btn">1</div>
                 <div id="select1" style="display:none"></div>
                 <div id="btn2_2" class="btn">2</div>
@@ -28,12 +36,27 @@
                 <div id="btn2_3" class="btn">3</div>
                 <div id="select3" style="display:none"></div>
             </div>
+            <div class="hidden" name="info_item">Galimų paimti degtukų skaičius</div>
+            <div id="reset" class="btn" style="margin: 10px 0;">&#9658;</div>
+            <div class="hidden" name="info_item">Pradėti žaidimą iš naujo (neperkrauna nim.AI būsenų)</div>
+            <div id="win_table" style="margin: 10px 0;">
+                <table>
+                    <tr>
+                        <td id="player_2">Žmogus:</td>
+                        <td id="human_wins">0</td>
+                    </tr>
+                    <tr>
+                        <td id="player_1">nim.AI:</td>
+                        <td id="ai_wins">0</td>
+                    </tr>
+                    <tr class="hidden" name="info_item">
+                        <th colspan="2">Laimėjimai</th>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div id="reset" class="btn">↻</div>
-        <!-- </div>
-    <div class="container" > -->
-        <div id="ai1" style="margin-top: 20px; "></div>
-        <div class="container" id="states1" style="margin-top: 10px; width: 50vw;">
+        <div id="ai1" class="hidden" name="info_item"></div>
+        <div class="states" id="states1">
             <div class="box">
                 <div id="name1_2"></div>
                 <div id="box1_2"></div>
@@ -75,8 +98,9 @@
                 <div id="box1_11"></div>
             </div>
         </div>
-        <div id="ai2" style="margin-top: 50px;"></div>
-        <div class="container" id="states2" style="margin-top: 10px; width: 50vw;">
+
+        <div id="ai2" class="hidden" name="info_item"></div>
+        <div class="states" id="states2">
             <div class="box">
                 <div id="name2_2"></div>
                 <div id="box2_2"></div>
@@ -124,7 +148,6 @@
     <div id="resignAI1" style="display:none"></div>
     <div id="resignAI2" style="display:none"></div>
 
-    <!-- <div id="change2" style="display:none"></div> -->
     <script src="helpers.js"></script>
     <script src="classes/player.js"></script>
     <script src="classes/ai.js"></script>
