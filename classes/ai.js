@@ -42,22 +42,24 @@ class AI extends Player {
     selectMove = (event) => {
         let game = event.detail[0];
         let state = game.currState;
-        const mv = new Promise(res => {
+        let mv = undefined;
+        mv = new Promise(res => {
             res(this.moves[state][randInt(0, this.moves[state].length - 1)])
         });
         mv.then(move => {
             let turn = event.detail[1];
-            this.lastMove = [state, move];
             if (move == undefined) {
                 document.getElementById(`resignAI${turn}`).dispatchEvent(new CustomEvent('resign', { detail: this }));
                 return;
             }
+            this.lastMove = [state, move];
             setTimeout(() => { document.getElementById(`btn${turn}_${move}`).dispatchEvent(new Event('click')); }, 50);
         });
     }
 
     forgetMove(state, move) {
         this.moves[state] = this.moves[state].filter((v, i, a) => i !== a.lastIndexOf(move));
+        console.log(`Forgot move: ${move} from state: ${state}`);
     }
 
     learnMove(state, move) {
