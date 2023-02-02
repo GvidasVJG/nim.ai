@@ -1,5 +1,5 @@
 // player1 = new Player('Human');
-player1 = new AI('nim.AI', 'lp', 'np');
+player1 = new AI('nim.AI', 'lp', 'n');
 // player2 = new AI('nim.AI2', 'lp', 'n');
 player2 = new Player('Human');
 
