@@ -15,6 +15,19 @@
 <body>
     <i class="fa-solid fa-circle-info" style="position:fixed; left:10px; top: 10px; cursor:pointer; font-size: 20pt;"
         onclick="moreinfo();"></i>
+    <div class="controller" style="position:fixed; right:10px; top: 10px; cursor:pointer;">
+        <div onclick="AIplayer()">
+            Antras žaidėjas žmogus<span id="AI_toggle" style="font-size: 20pt; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-toggle-on"></i>
+            </span>
+        </div>
+        <div onclick="AIlearning()" id="toggle_learning_div">
+            DI mokosi<span id="AI_toggle_learning" style="font-size: 20pt; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-toggle-on"></i>
+            </span>
+        </div>
+    </div>
+        
     <div class="container">
         <div style="display:grid; place-items:center;">
             <div class="hidden" name="info_item">Žaidimą visada pradeda nim.AI (kompiuteris)</div>
@@ -43,12 +56,12 @@
             <div id="win_table" style="margin: 10px 0;">
                 <table>
                     <tr>
-                        <td id="player_2">Žmogus:</td>
-                        <td id="player2_wins">0</td>
-                    </tr>
-                    <tr>
                         <td id="player_1">nim.AI:</td>
                         <td id="player1_wins">0</td>
+                    </tr>
+                    <tr>
+                        <td id="player_2">Žmogus:</td>
+                        <td id="player2_wins">0</td>
                     </tr>
                     <tr class="hidden" name="info_item">
                         <th colspan="2">Laimėjimai</th>
