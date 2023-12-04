@@ -2,18 +2,36 @@ class Game {
     moveMade = (e) => this.turn(e);
     reset = () => this.start();
     aiResign = (e) => this.resignAI(e);
-    human_wins = 0;
-    ai_wins = 0;
+    player2_wins = 0;
+    player1_wins = 0;
 
     constructor(startState, player1, player2) {
         this.startState = startState;
         this.currState = startState;
         this.player1 = player1;
         this.player2 = player2;
+        this.display.innerText = startState;
+        this.currPlayer = this.player1;
     };
 
-    displayWinner = () => {
-        this.display.innerText = `${this.winner.name} laimėjo`;
+    redrawMatches = () => {
+        let matches_box = document.getElementById('matches');
+        let matches = '';
+        for(let i = 0; i < this.currState; ++i){
+            matches += '<img src="match.png" style="width:30px;">';
+        }
+        matches_box.innerHTML = matches;
+    }
+
+    displayWinner = (type) => {
+        if(type=='win')
+            this.display.innerText = `${this.winner.name} laimėjo`;
+        else {
+            if(this.winner == this.player1)
+                this.display.innerText = `${this.player2.name} pasidavė`;
+            else
+                this.display.innerText = `${this.player1.name} pasidavė`;
+        }
     }
 
     teachAI = () => {
@@ -31,6 +49,19 @@ class Game {
         }
     }
 
+    finishGame = (type) => {
+        this.displayWinner(type);
+        this.teachAI();
+        if ( this.winner.name == 'nim.AI' || this.winner.name == 'Pirmasis žmogus'){
+            document.getElementById('player1_wins').innerHTML = ++this.player1_wins;
+        } else if ( this.winner.name == 'nim.AI.2' || this.winner.name == 'Antrasis žmogus' || this.winner.name == 'Žmogus'){
+            document.getElementById('player2_wins').innerHTML = ++this.player2_wins;
+        }
+        if (this.player1 instanceof AI && this.player2 instanceof AI) {
+            this.start();
+        }
+    }
+
     resignAI = (event) => {
         let ai = event.detail;
         if (this.currPlayer == ai) {
@@ -38,11 +69,7 @@ class Game {
         } else {
             this.winner = this.currPlayer;
         }
-        this.displayWinner();
-        this.teachAI();
-        if (this.player1 instanceof AI && this.player2 instanceof AI) {
-            this.start();
-        }
+        this.finishGame('resign');
         return;
     }
 
@@ -64,21 +91,13 @@ class Game {
         }
         if (this.currState == 1) {
             this.winner = this.currPlayer;
-            this.displayWinner();
-            this.teachAI();
-            if (this.winner instanceof AI){
-                document.getElementById('ai_wins').innerHTML = ++this.ai_wins;
-            }
-            else {
-                document.getElementById('human_wins').innerHTML = ++this.human_wins;
-            }
-            if (this.player1 instanceof AI && this.player2 instanceof AI) {
-                this.start();
-            }
+            this.redrawMatches();
+            this.finishGame('win');
             return;
         }
         ++this.turnNo;
         this.display.innerHTML = this.currState;
+        this.redrawMatches();
         this.swapPlayers();
     }
 
@@ -111,6 +130,7 @@ class Game {
         this.display.innerHTML = this.currState;
         this.currPlayer = this.player1;
         this.nextPlayer = this.player2;
+        this.redrawMatches();
     }
 
     start = () => {

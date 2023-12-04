@@ -19,6 +19,7 @@
         <div style="display:grid; place-items:center;">
             <div class="hidden" name="info_item">Žaidimą visada pradeda nim.AI (kompiuteris)</div>
             <div id="display">11</div>
+            <div id="matches"></div>
             <div class="hidden" name="info_item">Likusių degtukų skaičius</div>
             <div id="moves1" class="row">
                 <div id="btn1_1" class="btn">1</div>
@@ -43,11 +44,11 @@
                 <table>
                     <tr>
                         <td id="player_2">Žmogus:</td>
-                        <td id="human_wins">0</td>
+                        <td id="player2_wins">0</td>
                     </tr>
                     <tr>
                         <td id="player_1">nim.AI:</td>
-                        <td id="ai_wins">0</td>
+                        <td id="player1_wins">0</td>
                     </tr>
                     <tr class="hidden" name="info_item">
                         <th colspan="2">Laimėjimai</th>
@@ -56,92 +57,10 @@
             </div>
         </div>
         <div id="ai1" class="hidden" name="info_item"></div>
-        <div class="states" id="states1">
-            <div class="box">
-                <div id="name1_2"></div>
-                <div id="box1_2"></div>
-            </div>
-            <div class="box">
-                <div id="name1_3"></div>
-                <div id="box1_3"></div>
-            </div>
-            <div class="box">
-                <div id="name1_4"></div>
-                <div id="box1_4"></div>
-            </div>
-            <div class="box">
-                <div id="name1_5"></div>
-                <div id="box1_5"></div>
-            </div>
-            <div class="box">
-                <div id="name1_6"></div>
-                <div id="box1_6"></div>
-            </div>
-            <div class="box">
-                <div id="name1_7"></div>
-                <div id="box1_7"></div>
-            </div>
-            <div class="box">
-                <div id="name1_8"></div>
-                <div id="box1_8"></div>
-            </div>
-            <div class="box">
-                <div id="name1_9"></div>
-                <div id="box1_9"></div>
-            </div>
-            <div class="box">
-                <div id="name1_10"></div>
-                <div id="box1_10"></div>
-            </div>
-            <div class="box">
-                <div id="name1_11"></div>
-                <div id="box1_11"></div>
-            </div>
-        </div>
+        <div class="states" id="states1"></div>
 
         <div id="ai2" class="hidden" name="info_item"></div>
-        <div class="states" id="states2">
-            <div class="box">
-                <div id="name2_2"></div>
-                <div id="box2_2"></div>
-            </div>
-            <div class="box">
-                <div id="name2_3"></div>
-                <div id="box2_3"></div>
-            </div>
-            <div class="box">
-                <div id="name2_4"></div>
-                <div id="box2_4"></div>
-            </div>
-            <div class="box">
-                <div id="name2_5"></div>
-                <div id="box2_5"></div>
-            </div>
-            <div class="box">
-                <div id="name2_6"></div>
-                <div id="box2_6"></div>
-            </div>
-            <div class="box">
-                <div id="name2_7"></div>
-                <div id="box2_7"></div>
-            </div>
-            <div class="box">
-                <div id="name2_8"></div>
-                <div id="box2_8"></div>
-            </div>
-            <div class="box">
-                <div id="name2_9"></div>
-                <div id="box2_9"></div>
-            </div>
-            <div class="box">
-                <div id="name2_10"></div>
-                <div id="box2_10"></div>
-            </div>
-            <div class="box">
-                <div id="name2_11"></div>
-                <div id="box2_11"></div>
-            </div>
-        </div>
+        <div class="states" id="states2"></div>
     </div>
     <div id="enableAI1" style="display:none"></div>
     <div id="enableAI2" style="display:none"></div>

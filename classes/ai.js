@@ -59,11 +59,12 @@ class AI extends Player {
 
     forgetMove(state, move) {
         this.moves[state] = this.moves[state].filter((v, i, a) => i !== a.lastIndexOf(move));
-        console.log(`Forgot move: ${move} from state: ${state}`);
+        console.log(`${this.name} Forgot move: ${move} from state: ${state}`);
     }
 
     learnMove(state, move) {
         this.moves[state].push(move);
+        console.log(`${this.name} Learned move: ${move} from state: ${state}`);
     }
 
     teach = (winner) => {
